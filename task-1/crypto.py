@@ -7,9 +7,71 @@ print("\t\t\t\t\tHi! I'm your personal voice assistant Crypto...")
 print("\t\t\t\t\t```````````````````````````````````````````````")
 
 pyttsx3.speak("Hi I'm crypto, your personal voice assistant! What can I for you?")
+pyttsx3.speak("Choose a method which you want to prefer to do these partiular tasks!")
 
-while True:
-	p = input("Enter:").lower
-	print(p)
-	if ("run" in p or "open" in p or "launch" in p) and ("chrome" in p):
-		os.system("chrome") 
+print("""
+Which method do you prefer:
+1. Menu driven
+2. Type yourself
+3. Voice command
+""")
+
+method = input()
+
+if int(method) == 1:
+	while True:
+		print("""
+			Press 1: To show date.
+			Press 2: To show calendar.
+			Press 3: To change the console of the color.
+			Press 4: To open Google Chrome.
+			Press 5: To go to Youtube.
+			Press 6: To open Gmail.
+			Press 7: Make Chrome your default browser
+			Press 8: Make Opera your default browser
+		""")
+
+		print("Enter your choice:")
+		ch = input()
+
+		if int(ch) == 1:
+			os.system("date")	#date
+		elif int(ch) == 2:
+			os.system("cal")	#calendar
+		elif int(ch) == 3:
+			print("""
+			What color do you want your console to look like?
+			0: Black 						8: Gray
+			1: Blue							9: Light Blue
+			2: Green 						A: Light Green
+			3: Aqua 						B: Light Aqua
+			4: Red 							C: Light Red
+			5: Purple						D: Light Purple
+			6: Yellow						E: Light Yellow
+			8: White						F: Bright White
+			""")
+			color = input()	#color_choice
+			os.system("color " + color)
+		elif int(ch) == 4:
+			os.system("chrome")	#chrome
+		elif int(ch) == 5:
+			os.system("start https://www.youtube.com")	#Youtube
+		elif int(ch) == 6:
+			os.system("start https://www.gmail.com")	#Gmail
+		elif int(ch) == 7:
+			os.system("chrome.exe --make-default-browser")	#ChromeDefaultBrowser
+		elif int(ch) == 8:
+			os.system("launcher.exe --make-default-browser")	#OperaDefaultBrowser	
+
+elif int(method) == 2:
+	while True:
+		p = input("Enter:").lower()
+		print(p)
+		if (("run" in p) or ("open" in p) or ("launch" in p)) and ("chrome" in p):
+			os.system("chrome")
+		elif (("run" in p) or ("open" in p) or ("launch" in p)) and (("media player" in p) or ("player" in p)):
+			os.system("wmplayer")
+		elif (("run" in p) or ("open" in p) or ("launch" in p)) and (("notepad" in p) or ("text editor" in p) or ("editor" in p)):
+			os.system("notepad")
+		elif (("run" in p) or ("open" in p) or ("launch" in p)) and (("visual studio code" in p) or ("vs code" in p) or ("vs" in p)):
+			os.system("code .")
