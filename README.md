@@ -1,1 +1,1 @@
-# SpecialisInPython
+# SpecialistInPython
