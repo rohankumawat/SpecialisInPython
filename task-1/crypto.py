@@ -190,6 +190,9 @@ while True:
 			elif (("take" in p) or ("go in p")) and ("previous" in p) and ("menu" in p):
 				pyttsx3.speak("They'll never catch you!")
 				break
+			# if the command is not understandable
+			else:
+				pyttsx3.speak("I cannot understand this command. What do you mean to say? And yes, I'll keep on updating my system soon...")
 			os.system("cls")
 
 	elif int(method)==0: #to exit permanently out of this code
