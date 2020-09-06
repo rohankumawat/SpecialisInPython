@@ -186,6 +186,8 @@ while True:
 			elif (("listen" in p) or ("open" in p) or ("play" in p)) and ("spotify" in p):
 				pyttsx3.speak("Launching spotify for you!")
 				os.system("spotify")
+			elif (("show" in p) or ("tell" in p)) and ("date" in p):
+    			os.system("date")
 			# to go back to previous menu
 			elif (("take" in p) or ("go in p")) and ("previous" in p) and ("menu" in p):
 				pyttsx3.speak("They'll never catch you!")
