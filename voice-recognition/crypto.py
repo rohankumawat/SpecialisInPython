@@ -1,6 +1,7 @@
 import os
 import pyttsx3
 import speechrecognition as sr
+import PyAudio as audio
 
 
 print()
@@ -202,7 +203,13 @@ while True:
 
     elif int(method) == 3:
         while True:
-            r = sr.recognize_google()
+			r = sr.recognize_google()
+			with sr.Microphone() as source:
+				print('Start saying')
+				audio = r.listen(source)
+			ch = r.recognize_google(audio)
+			
+            
 
 	elif int(method) == 4: #to exit permanently out of this code
 		break
