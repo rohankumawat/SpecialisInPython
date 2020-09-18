@@ -1,7 +1,7 @@
 import os
 import pyttsx3
-import speechrecognition as sr
-import PyAudio as audio
+import speech_recognition as sr
+import pyaudio as audio
 
 
 print()
@@ -19,12 +19,12 @@ while True:
 	Which method do you prefer:
 	1. Menu driven
 	2. Type yourself
-    3. Give command using your voice
+	3. Give command using your voice
 	4. Exit
 	""")
 	
 	method = input("Method you want: ")
-
+	
 	if int(method) == 1:
 		
 		print("\t\t\t\t\t``````````````````````````````````")
@@ -191,7 +191,7 @@ while True:
 				pyttsx3.speak("Launching spotify for you!")
 				os.system("spotify")
 			elif (("show" in p) or ("tell" in p)) and ("date" in p):
-    			os.system("date")
+				os.system("date")
 			# to go back to previous menu
 			elif (("take" in p) or ("go in p")) and ("previous" in p) and ("menu" in p):
 				pyttsx3.speak("They'll never catch you!")
@@ -200,14 +200,65 @@ while True:
 			else:
 				pyttsx3.speak("I cannot understand this command. What do you mean to say? And yes, I'll keep on updating my system soon...")
 			os.system("cls")
-
-    elif int(method) == 3:
-        while True:
-			r = sr.recognize_google()
+			
+	elif int(method) == 3:
+		while True:
+			r = sr.Recognizer()
 			with sr.Microphone() as source:
-				print('Start saying')
+				pyttsx3.speak("Say something!!")
 				audio = r.listen(source)
-			ch = r.recognize_google(audio)
+			p = r.recognize_google(audio)
+			print(p)
+			# Open Chrome
+			if (("run" in p) or ("open" in p) or ("launch" in p)) and ("chrome" in p):
+				pyttsx3.speak("Launching Chrome for you!")
+				os.system("chrome")
+			# Open Windows Media Player
+			elif (("run" in p) or ("open" in p) or ("launch" in p)) and (("media player" in p) or ("player" in p)):
+				pyttsx3.speak("Launching Windows Media Player for you!")
+				os.system("wmplayer")
+			# Open text editor
+			elif (("run" in p) or ("open" in p) or ("launch" in p)) and (("notepad" in p) or ("text editor" in p) or ("editor" in p)):
+				pyttsx3.speak("Opening Text Editor for you!")
+				os.system("notepad")
+			# Open VS code
+			elif (("run" in p) or ("open" in p) or ("launch" in p)) and (("visual studio code" in p) or ("vs code" in p) or ("vs" in p)):
+				pyttsx3.speak("Opening Visual Studio Code for you!")
+				os.system("code .")
+			# Open Youtube
+			elif (("open" in p) or ("launch" in p)) and ("youtube" in p):
+				pyttsx3.speak("Opening Youtube for you!")
+				os.system("start https://www.youtube.com")
+			# Open Gmail
+			elif ("open" in p) and (("g-mail" in p) or ("mail" in p) or ("e-mail" in p)):
+				pyttsx3.speak("Opening G-mail for you!")
+				os.system("start https://www.gmail.com")
+			# Open WordPad
+			elif (("run" in p) or ("open" in p) or ("launch" in p)) and (("wordpad" in p) or ("word pad" in p)):
+				pyttsx3.speak("Opening WordPad for you!")
+				os.system("write")
+			# make chrome default browser
+			elif ("make" in p) and (("google chrome" in p) or ("chrome" in p)) and ("default browser" in p):
+				pyttsx3.speak("Making Chrome your default browser!")
+				os.system("chrome.exe --make-default-browser")
+			# make opera default browser
+			elif ("make" in p) and ("opera" in p) and ("default browser" in p):
+				pyttsx3.speak("Opening Opera GX Browser for you!")
+				os.system("launcher.exe --make-default-browser")
+			# Open spotify app
+			elif (("listen" in p) or ("open" in p) or ("play" in p)) and ("spotify" in p):
+				pyttsx3.speak("Launching spotify for you!")
+				os.system("spotify")
+			elif (("show" in p) or ("tell" in p)) and ("date" in p):
+				os.system("date")
+			# to go back to previous menu
+			elif (("take" in p) or ("go in p")) and ("previous" in p) and ("menu" in p):
+				pyttsx3.speak("They'll never catch you!")
+				break
+			# if the command is not understandable
+			else:
+				pyttsx3.speak("I cannot understand this command. What do you mean to say? And yes, I'll keep on updating my system soon...")
+			os.system("cls")
 			
             
 
